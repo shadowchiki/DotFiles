@@ -4,3 +4,5 @@
 local keymap = vim.keymap
 keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all text" })
 keymap.set("n", "<leader>h", ":b#<CR>", { desc = "Back to prev buffer" })
+keymap.set("n", "gh", "<cmd>ClangdSwitchSourceHeader<CR>", { desc = "Swap .hpp/.cpp files" })
+keymap.set("n", "sq", ":q!<Return>", { silent = true })
