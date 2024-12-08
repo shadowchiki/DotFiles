@@ -36,6 +36,7 @@ return {
 				["@type.tsx"] = { fg = "#F2F250" },
 				["@type.builtin.tsx"] = { fg = "#FF7055" },
 				["@lsp.type.enum"] = { fg = "#B389C5" },
+				["@tag.tsx"] = { fg = "#1290C3" },
 			},
 		})
 		require("onedark").load()
