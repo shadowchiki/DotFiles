@@ -67,6 +67,35 @@ return {
 			-- LSP Server Settings
 			---@type lspconfig.options
 			servers = {
+				qmlls = {
+					cmd = { "qmlls" },
+					filetypes = { "qml", "qmljs" },
+					root_dir = function(fname)
+						return util.find_git_ancestor(fname)
+					end,
+					single_file_support = true,
+					settings = {
+						qmlls = {
+							logging = {
+								level = "info",
+							},
+							completion = {
+								includeBuiltins = true,
+							},
+							lint = {
+								enable = true,
+							},
+						},
+					},
+					on_attach = function(client, bufnr)
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({ async = false })
+							end,
+						})
+					end,
+				},
 				tsserver = {}, -- TypeScript/JavaScript
 				html = {}, -- HTML
 				cssls = {}, -- CSS/SCSS
@@ -82,6 +111,26 @@ return {
 							telemetry = { enable = false },
 						},
 					},
+				},
+				clangd = {
+					cmd = { "clangd" },
+					filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
+					root_dir = require("lspconfig.util").root_pattern(
+						".clangd",
+						".clang-format",
+						"compile_commands.json",
+						"compile_flags.txt",
+						".git"
+					),
+					on_attach = function(client, bufnr)
+						-- Configura el formateo con LSP si lo prefieres (opcional)
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({ async = false })
+							end,
+						})
+					end,
 				},
 
 				-- return true if you don't want this server to be setup with lspconfig
