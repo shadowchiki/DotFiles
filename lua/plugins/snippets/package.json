@@ -4,9 +4,9 @@
     "snippets": [
       {
         "language": [
-          "cpp"
+          "all"
         ],
-        "path": "./test.json"
+        "path": "./cpp.json"
       }
     ]
   }

@@ -1,0 +1,143 @@
+{
+  "Create class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}",
+      "{",
+      "public: ",
+      "    ${1}() = default;",
+      "    virtual ~${1}() = default;",
+      "};"
+    ],
+    "description": "Create a class"
+  },
+  "Create class With Namespace": {
+    "prefix": "classn",
+    "body": [
+      "namespace ${1:NameSpaceName}",
+      "{",
+      "class ${2:ClassName}",
+      "{",
+      "public: ",
+      "    ${2}() = default;",
+      "    virtual ~${2}() = default;",
+      "};",
+      "}  // namespace ${1}"
+    ],
+    "description": "Create a class with namespace"
+  },
+  "Indra Coppyrigth With Pragma once": {
+    "prefix": "cpr",
+    "body": [
+      "/**",
+      " * @par Copyright:",
+      " *   This source code is covered by intellectual property rights and its",
+      " *   distribution is limited to Indra. Other disclosure requests for this",
+      " *   information are subject to the prior written approval of the parties",
+      " *   listed above.",
+      " */",
+      "#pragma once",
+      ""
+    ],
+    "description": "Add Coppyrigth and pragma once"
+  },
+  "Indra Coppyrigth": {
+    "prefix": "cpr",
+    "body": [
+      "/**",
+      " * @par Copyright:",
+      " *   This source code is covered by intellectual property rights and its",
+      " *   distribution is limited to Indra. Other disclosure requests for this",
+      " *   information are subject to the prior written approval of the parties",
+      " *   listed above.",
+      " */",
+      ""
+    ],
+    "description": "Add Coppyrigth"
+  },
+  "Create class with Copyright": {
+    "prefix": "classcrp",
+    "body": [
+      "/**",
+      " * @par Copyright:",
+      " *   This source code is covered by intellectual property rights and its",
+      " *   distribution is limited to Indra. Other disclosure requests for this",
+      " *   information are subject to the prior written approval of the parties",
+      " *   listed above.",
+      " */",
+      "#pragma once",
+      "",
+      "class ${1:ClassName}",
+      "{",
+      "public: ",
+      "    ${1}() = default;",
+      "    virtual ~${1}() = default;",
+      "};"
+    ],
+    "description": "Create a class with Copyright"
+  },
+  "Create class with Namespace and Copyright": {
+    "prefix": "classncrp",
+    "body": [
+      "/**",
+      " * @par Copyright:",
+      " *   This source code is covered by intellectual property rights and its",
+      " *   distribution is limited to Indra. Other disclosure requests for this",
+      " *   information are subject to the prior written approval of the parties",
+      " *   listed above.",
+      " */",
+      "#pragma once",
+      "",
+      "namespace ${1:NameSpaceName}",
+      "{",
+      "class ${2:ClassName}",
+      "{",
+      "public: ",
+      "    ${2}() = default;",
+      "    virtual ~${2}() = default;",
+      "};",
+      "}  // namespace ${1}"
+    ],
+    "description": "Create a class with Namespace and Copyright"
+  },
+  "virtual method": {
+    "prefix": "vmethod",
+    "body": [
+      "virtual ${1:type} ${2:name}(${3:args});"
+    ],
+    "description": "virtual method"
+  },
+  "Pure Virtual Method": {
+    "prefix": "vmethodp",
+    "body": [
+      "virtual ${1:type} ${2:name}(${3:args}) = 0;"
+    ],
+    "description": "Pure Virtual method"
+  },
+  "Implementation Method": {
+    "prefix": "imethod",
+    "body": [
+      "${1:type} ${2:className}::${3:name}(${4:args})",
+      "{",
+      "}"
+    ],
+    "description": "Implementation of a method"
+  },
+  "Implementation Contructor": {
+    "prefix": "iconstructor",
+    "body": [
+      "${1:className}::${1}(${2:args})",
+      "${3:inicializations}",
+      "{",
+      "}"
+    ],
+    "description": "Implementation of a Contructor"
+  },
+  "Cout": {
+    "prefix": "cout",
+    "body": [
+      "std::cout << \"${1:text}\" << std::endl;"
+    ],
+    "description": "Cout with endl"
+  }
+}
