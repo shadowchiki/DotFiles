@@ -29,10 +29,9 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "plugins" },
 		{
-			dir = "~/.config/nvim/lua/plugins/MyPlugin",
-			name = "MyPlugin",
+			dir = "~/workspace/nvim-cpp-tools",
 			config = function()
-				require("myplugin")
+				require("nvim-cpp-tools")
 			end,
 		},
 	},
