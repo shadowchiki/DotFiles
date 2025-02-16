@@ -28,6 +28,13 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.cmake" },
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "plugins" },
+		{
+			dir = "~/.config/nvim/lua/plugins/MyPlugin",
+			name = "MyPlugin",
+			config = function()
+				require("myplugin")
+			end,
+		},
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
