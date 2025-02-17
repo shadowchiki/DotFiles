@@ -31,7 +31,7 @@ require("lazy").setup({
 		{
 			dir = "~/workspace/nvim-cpp-tools",
 			config = function()
-				require("nvim-cpp-tools")
+				require("nvim-cpp-tools").setup()
 			end,
 		},
 	},
