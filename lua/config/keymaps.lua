@@ -10,6 +10,12 @@ keymap.set("n", "<leader>fh", function()
 	end
 end, { desc = "Find files from specific route", silent = true })
 
+keymap.set(
+	"n",
+	"<leader>cp",
+	":%s/= 0/override/g<CR>",
+	{ desc = "Replace = 0 to override", noremap = true, silent = true }
+)
 keymap.set("x", "<leader>re", ":Refactor extract ")
 keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
 
