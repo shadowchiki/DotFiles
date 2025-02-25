@@ -1,26 +1,43 @@
 return {
-	"uloco/bluloco.nvim",
+	"rmehri01/onenord.nvim",
 	lazy = false,
 	priority = 1000,
-	dependencies = { "rktjmp/lush.nvim" },
 	config = function()
-		require("bluloco").setup({
-			style = "dark",
-			transparent = false,
-			italics = false,
-			terminal = vim.fn.has("gui_running") == 1,
-			guicursor = true,
+		require("onenord").setup({
+			custom_highlights = {
+				["@lsp.type.namespace.cpp"] = { fg = "#C58E60" },
+				["@lsp.type.class.cpp"] = { fg = "#89C7FA" },
+				["@lsp.typemod.method.abstract"] = { fg = "#80F6A7" },
+			},
+			custom_colors = {},
 		})
-		vim.opt.termguicolors = true
-		vim.cmd("colorscheme bluloco")
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "bluloco",
-			callback = function()
-				vim.api.nvim_set_hl(0, "@type.builtin.cpp", { fg = "#48A9F8" }) -- Azul Zafiro para clases
-			end,
-		})
+		vim.cmd("colorscheme onenord")
 	end,
 }
+
+-- return {
+-- 	"uloco/bluloco.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	dependencies = { "rktjmp/lush.nvim" },
+-- 	config = function()
+-- 		require("bluloco").setup({
+-- 			style = "dark",
+-- 			transparent = false,
+-- 			italics = false,
+-- 			terminal = vim.fn.has("gui_running") == 1,
+-- 			guicursor = true,
+-- 		})
+-- 		vim.opt.termguicolors = true
+-- 		vim.cmd("colorscheme bluloco")
+-- 		vim.api.nvim_create_autocmd("ColorScheme", {
+-- 			pattern = "bluloco",
+-- 			callback = function()
+-- 				vim.api.nvim_set_hl(0, "@type.builtin.cpp", { fg = "#48A9F8" }) -- Azul Zafiro para clases
+-- 			end,
+-- 		})
+-- 	end,
+-- }
 -- return {
 -- 	"navarasu/onedark.nvim",
 -- 	lazy = false,
@@ -34,11 +51,11 @@ return {
 -- 			highlights = {
 -- 				["@lsp.type.class"] = { fg = "#C58E60" },
 -- 				-- ["@lsp.type.property"] = { fg = "#66E1F8" },
--- 				["@lsp.typemod.method.abstract"] = { fg = "#80F6A7" },
 -- 				-- ["@lsp.type.namespace"] = { fg = "#10B1FE" },
 -- 				-- ["@lsp.type.variable"] = { fg = "#F2F250" },
 -- 				-- 		["@lsp.type.parameter"] = { fg = "#79ABFF" },
 -- 				-- ["@lsp.typemod.variable.declaration"] = { fg = "#F2F250" },
+-- 				["@lsp.typemod.method.abstract"] = { fg = "#80F6A7" },
 -- 				-- 		["@lsp.typemod.method.declaration"] = { fg = "#1EB540" },
 -- 				-- 		["@lsp.type.method"] = { fg = "#A7EC21" },
 --

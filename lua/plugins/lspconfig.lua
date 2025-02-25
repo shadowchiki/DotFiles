@@ -2,8 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	event = "LazyFile",
 	dependencies = {
-		"mason.nvim",
-		{ "williamboman/mason-lspconfig.nvim", config = function() end },
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	opts = function()
 		---@class PluginLspOpts
@@ -113,8 +114,6 @@ return {
 					},
 				},
 				clangd = {
-					cmd = { "clangd" },
-					filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
 					root_dir = require("lspconfig.util").root_pattern(
 						".clangd",
 						".clang-format",
@@ -123,7 +122,6 @@ return {
 						".git"
 					),
 					on_attach = function(client, bufnr)
-						-- Configura el formateo con LSP si lo prefieres (opcional)
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							buffer = bufnr,
 							callback = function()
