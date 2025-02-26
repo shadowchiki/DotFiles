@@ -2,6 +2,8 @@
   "Create class": {
     "prefix": "class",
     "body": [
+      "#pragma once",
+      "",
       "class ${1:ClassName}",
       "{",
       "public: ",
@@ -14,6 +16,8 @@
   "Create class With Namespace": {
     "prefix": "classn",
     "body": [
+      "#pragma once",
+      "",
       "namespace ${1:NameSpaceName}",
       "{",
       "class ${2:ClassName}",
