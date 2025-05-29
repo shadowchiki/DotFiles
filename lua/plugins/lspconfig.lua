@@ -122,12 +122,12 @@ return {
 						".git"
 					),
 					on_attach = function(client, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({ async = false })
-							end,
-						})
+						-- vim.api.nvim_create_autocmd("BufWritePre", {
+						-- 	buffer = bufnr,
+						-- 	callback = function()
+						-- 		vim.lsp.buf.format({ async = false })
+						-- 	end,
+						-- })
 					end,
 				},
 
@@ -147,7 +147,7 @@ return {
 	---@param opts PluginLspOpts
 	config = function(_, opts)
 		-- setup autoformat
-		LazyVim.format.register(LazyVim.lsp.formatter())
+		-- LazyVim.format.register(LazyVim.lsp.formatter())
 
 		-- setup keymaps
 		LazyVim.lsp.on_attach(function(client, buffer)
