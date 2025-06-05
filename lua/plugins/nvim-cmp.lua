@@ -114,7 +114,42 @@ return {
 					hl_group = "CmpGhostText",
 				} or false,
 			}
-			opts.sorting = defaults.sorting
+			opts.sorting = {
+				priority_weight = 2,
+				function(entry1, entry2)
+					local kind1 = entry1:get_kind()
+					local kind2 = entry2:get_kind()
+
+					local kind_priority = {
+						[cmp.lsp.CompletionItemKind.Variable] = 1,
+						[cmp.lsp.CompletionItemKind.Field] = 1,
+						[cmp.lsp.CompletionItemKind.Function] = 2,
+						[cmp.lsp.CompletionItemKind.Class] = 3,
+						[cmp.lsp.CompletionItemKind.Struct] = 3,
+						[cmp.lsp.CompletionItemKind.Interface] = 3,
+						[cmp.lsp.CompletionItemKind.Module] = 3,
+						[cmp.lsp.CompletionItemKind.Constructor] = 4,
+						[cmp.lsp.CompletionItemKind.Snippet] = 2,
+					}
+
+					local p1 = kind_priority[kind1] or 99
+					local p2 = kind_priority[kind2] or 99
+
+					if p1 < p2 then
+						return true
+					elseif p1 > p2 then
+						return false
+					end
+				end,
+				comparators = {
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.offset,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
+			}
 		end,
 		main = "lazyvim.util.cmp",
 	},
