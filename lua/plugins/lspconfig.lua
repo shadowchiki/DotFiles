@@ -68,35 +68,6 @@ return {
 			-- LSP Server Settings
 			---@type lspconfig.options
 			servers = {
-				qmlls = {
-					cmd = { "qmlls" },
-					filetypes = { "qml", "qmljs" },
-					root_dir = function(fname)
-						return util.find_git_ancestor(fname)
-					end,
-					single_file_support = true,
-					settings = {
-						qmlls = {
-							logging = {
-								level = "info",
-							},
-							completion = {
-								includeBuiltins = true,
-							},
-							lint = {
-								enable = true,
-							},
-						},
-					},
-					on_attach = function(client, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({ async = false })
-							end,
-						})
-					end,
-				},
 				tsserver = {}, -- TypeScript/JavaScript
 				html = {}, -- HTML
 				cssls = {}, -- CSS/SCSS
