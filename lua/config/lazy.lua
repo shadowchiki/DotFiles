@@ -31,9 +31,7 @@ require("lazy").setup({
 		{
 			dir = "~/workspace/nvim-cpp-tools",
 			config = function()
-				require("nvim-cpp-tools").setup({
-					generate_cpp_file_path = "../src",
-				})
+				require("nvim-cpp-tools").setup()
 			end,
 		},
 	},
