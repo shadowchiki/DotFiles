@@ -15,8 +15,7 @@ return {
 	end,
 }
 
--- return {
--- 	"uloco/bluloco.nvim",
+-- return { "uloco/bluloco.nvim",
 -- 	lazy = false,
 -- 	priority = 1000,
 -- 	dependencies = { "rktjmp/lush.nvim" },
@@ -38,13 +37,14 @@ return {
 -- 		})
 -- 	end,
 -- }
+
 -- return {
 -- 	"navarasu/onedark.nvim",
 -- 	lazy = false,
 -- 	priority = 1000,
 -- 	config = function()
 -- 		require("onedark").setup({
--- 			style = "deep",
+-- 			style = "darker",
 -- 			colors = {
 -- 				purple = "#10B1FE",
 -- 			},
