@@ -1,7 +1,6 @@
 return {
-	{ "saghen/blink.cmp", enabled = false },
-
 	{
+
 		"hrsh7th/nvim-cmp",
 		version = false,
 		enabled = true,
@@ -53,7 +52,7 @@ return {
 
 			table.insert(opts.sources, { name = "luasnip" })
 
-			if LazyVim.has("nvim-snippets") then
+			if require("lazy.core.config").plugins["nvim-snippets"] then
 				table.insert(opts.sources, { name = "snippets" })
 			end
 
@@ -151,6 +150,6 @@ return {
 				},
 			}
 		end,
-		main = "lazyvim.util.cmp",
+		-- main = "lazyvim.util.cmp",
 	},
 }

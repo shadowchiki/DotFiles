@@ -13,9 +13,10 @@ end, { desc = "Find files from specific route", silent = true })
 keymap.set(
 	"n",
 	"<leader>cp",
-	":%s/= 0/override/g<CR>",
-	{ desc = "Replace = 0 to override", noremap = true, silent = true }
+	":%s/= 1/override/g<CR>",
+	{ desc = "Replace = 1 to override", noremap = true, silent = true }
 )
 keymap.set("n", "<leader>cf", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format code" })
+

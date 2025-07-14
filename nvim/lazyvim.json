@@ -1,5 +1,7 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.ui.treesitter-context"
   ],
   "install_version": 7,

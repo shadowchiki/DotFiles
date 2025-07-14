@@ -1,31 +1,75 @@
+local ensure_installed = {
+	"prettier",
+	"clang-format",
+
+	"jsonlint",
+
+	"html-lsp",
+	"css-lsp",
+	"tailwindcss-language-server",
+	"kotlin-language-server",
+	"lemminx",
+	"docker-compose-language-service",
+	"dockerfile-language-server",
+	"typescript-language-server",
+	"cmake-language-server",
+	"clangd",
+}
+
 return {
 	{
 		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
+		opts_extend = { "ensure_installed" },
+		opts = {
+			ensure_installed = ensure_installed,
+		},
+
+		---@param opts MasonSettings | {ensure_installed: string[]}
+		config = function(_, opts)
+			require("mason").setup(opts)
+			local mr = require("mason-registry")
+			mr:on("package:install:success", function()
+				vim.defer_fn(function()
+					require("lazy.core.handler.event").trigger({
+						event = "FileType",
+						buf = vim.api.nvim_get_current_buf(),
+					})
+				end, 100)
+			end)
+
+			mr.refresh(function()
+				for _, tool in ipairs(opts.ensure_installed) do
+					local p = mr.get_package(tool)
+					if not p:is_installed() then
+						p:install()
+					end
+				end
+			end)
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"ts_ls",
-					"clangd",
-				},
+				ensure_installed = ensure_installed,
 			})
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.ts_ls.setup({})
-			lspconfig.clangd.setup({})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition" })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-		end,
+		opts = {
+			servers = {
+				html = {},
+				cssls = {},
+				tailwindcss = {},
+				kotlin_language_server = {},
+				lemminx = {},
+				docker_compose_language_service = {},
+				dockerls = {},
+				ts_ls = {},
+				cmake = {},
+				clangd = {},
+			},
+		},
 	},
 }
