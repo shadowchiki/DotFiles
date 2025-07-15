@@ -11,15 +11,24 @@ keymap.set("n", "<leader>fh", function()
 end, { desc = "Find files from specific route", silent = true })
 
 keymap.set("n", "<leader>fH", function()
-	vim.cmd(":Telescope find_files cwd=$HOME")
+	local cwd = vim.fn.input("Insert path to find", vim.fn.expand("$HOME") .. "/", "dir")
+	if cwd and cwd ~= "" then
+		vim.cmd(":Telescope find_files cwd=" .. cwd)
+	end
 end, { desc = "Find files from $HOME", silent = true })
 
-keymap.set(
-	"n",
-	"<leader>cp",
-	":%s/= 1/override/g<CR>",
-	{ desc = "Replace = 1 to override", noremap = true, silent = true }
-)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cpp",
+	callback = function()
+		keymap.set(
+			"n",
+			"<leader>cp",
+			":%s/= 1/override/g<CR>",
+			{ desc = "Replace = 1 to override", noremap = true, silent = true }
+		)
+	end,
+})
+
 keymap.set("n", "<leader>cf", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format code" })
