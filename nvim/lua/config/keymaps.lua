@@ -10,6 +10,10 @@ keymap.set("n", "<leader>fh", function()
 	end
 end, { desc = "Find files from specific route", silent = true })
 
+keymap.set("n", "<leader>fH", function()
+	vim.cmd(":Telescope find_files cwd=$HOME")
+end, { desc = "Find files from $HOME", silent = true })
+
 keymap.set(
 	"n",
 	"<leader>cp",
@@ -19,4 +23,3 @@ keymap.set(
 keymap.set("n", "<leader>cf", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format code" })
-
