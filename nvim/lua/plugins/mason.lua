@@ -1,21 +1,21 @@
 local ensure_installed = {
-	"prettier",
-	"clang-format",
-
-	"jsonlint",
-
-	"json-lsp",
-	"angular-language-server",
-	-- "superhtml",
+	-- "prettier",
+	-- "clang-format",
+	--
+	-- "jsonlint",
+	--
+	-- "json-lsp",
+	-- "angular-language-server",
+	"html-lsp",
 	"css-lsp",
-	"tailwindcss-language-server",
-	"kotlin-language-server",
+	-- "tailwindcss-language-server",
+	-- "kotlin-language-server",
 	"lemminx",
 	"docker-compose-language-service",
 	"dockerfile-language-server",
-	"typescript-language-server",
+	-- "typescript-language-server",
 	"cmake-language-server",
-	"clangd",
+	-- "clangd",
 }
 
 return {
