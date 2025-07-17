@@ -4,7 +4,9 @@ local ensure_installed = {
 
 	"jsonlint",
 
-	"html-lsp",
+	"json-lsp",
+	"angular-language-server",
+	-- "superhtml",
 	"css-lsp",
 	"tailwindcss-language-server",
 	"kotlin-language-server",

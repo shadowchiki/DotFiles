@@ -2,7 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	opts = {
 		servers = {
-			html = {},
+			angularls = {},
+			jsonls = {},
+			-- superhtml = {},
 			cssls = {},
 			tailwindcss = {},
 			kotlin_language_server = {},
