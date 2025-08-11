@@ -6,3 +6,4 @@ vim.g.maplocalleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
 vim.g.lazyvim_picker = "telescope"
+vim.g.autoformat = false

@@ -4,9 +4,15 @@
     "snippets": [
       {
         "language": [
-          "all"
+          "cpp"
         ],
         "path": "./cpp.json"
+      },
+      {
+        "language": [
+          "qml"
+        ],
+        "path": "./qml.json"
       }
     ]
   }

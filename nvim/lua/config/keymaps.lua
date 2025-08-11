@@ -3,14 +3,14 @@
 -- Add any additional keymaps here
 local keymap = vim.keymap
 keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all text" })
-keymap.set("n", "<leader>fh", function()
+keymap.set("n", "<leader>fH", function()
 	local cwd = vim.fn.input("Insert path to find", "", "dir")
 	if cwd and cwd ~= "" then
 		vim.cmd(":Telescope find_files cwd=" .. cwd)
 	end
 end, { desc = "Find files from specific route", silent = true })
 
-keymap.set("n", "<leader>fH", function()
+keymap.set("n", "<leader>fh", function()
 	local cwd = vim.fn.input("Insert path to find", vim.fn.expand("$HOME") .. "/", "dir")
 	if cwd and cwd ~= "" then
 		vim.cmd(":Telescope find_files cwd=" .. cwd)
@@ -29,9 +29,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-keymap.set("n", "<leader>cf", function()
-	vim.lsp.buf.format({ async = true })
-end, { desc = "Format code" })
+-- keymap.set("n", "<leader>cf", function()
+--   vim.g.autoformat = true
+-- 	vim.lsp.buf.format({ async = true })
+--   vim.g.autoformat = false
+-- end, { desc = "Format code" })
 
 vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 

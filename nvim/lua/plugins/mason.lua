@@ -14,7 +14,7 @@ local ensure_installed = {
 	"docker-compose-language-service",
 	"dockerfile-language-server",
 	-- "typescript-language-server",
-	"cmake-language-server",
+	-- "cmake-language-server",
 	-- "clangd",
 }
 

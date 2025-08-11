@@ -1,0 +1,9 @@
+{
+  "Property": {
+    "prefix": "property",
+    "body": [
+      "property ${1:type} ${2:name}: ${3:value} "
+    ],
+    "description": "Create a Property"
+  }
+}
