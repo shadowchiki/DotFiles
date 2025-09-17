@@ -1,4 +1,3 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 return {
 	"neovim/nvim-lspconfig",
 	opts = {
@@ -33,4 +32,5 @@ return {
 			},
 		},
 	},
+	vim.lsp.enable("roslyn_ls"),
 }

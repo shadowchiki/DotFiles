@@ -16,6 +16,7 @@ local ensure_installed = {
 	-- "typescript-language-server",
 	-- "cmake-language-server",
 	-- "clangd",
+	"roslyn",
 }
 
 return {
@@ -24,8 +25,11 @@ return {
 		opts_extend = { "ensure_installed" },
 		opts = {
 			ensure_installed = ensure_installed,
+			registries = {
+				"github:mason-org/mason-registry",
+				"github:Crashdummyy/mason-registry",
+			},
 		},
-
 		---@param opts MasonSettings | {ensure_installed: string[]}
 		config = function(_, opts)
 			require("mason").setup(opts)
