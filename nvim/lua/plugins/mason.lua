@@ -21,7 +21,7 @@ local ensure_installed = {
 
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		opts_extend = { "ensure_installed" },
 		opts = {
 			ensure_installed = ensure_installed,
@@ -54,7 +54,11 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = ensure_installed,

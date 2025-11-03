@@ -50,7 +50,6 @@ return {
 			}
 
 			table.insert(opts.sources, { name = "luasnip" })
-
 			if require("lazy.core.config").plugins["nvim-snippets"] then
 				table.insert(opts.sources, { name = "snippets" })
 			end

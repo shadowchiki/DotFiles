@@ -18,12 +18,12 @@ require("lazy").setup({
 	spec = {
 		-- add LazyVim and import its plugins
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
-		-- {
-		-- 	dir = "~/workspace/nvim-cpp-tools",
-		-- 	config = function()
-		-- 		require("nvim-cpp-tools").setup()
-		-- 	end,
-		-- },
+		{
+			dir = "~/workspace/nvim-cpp-tools",
+			config = function()
+				require("nvim-cpp-tools").setup()
+			end,
+		},
 		{ import = "lazyvim.plugins.extras.lang.java" },
 		{ import = "lazyvim.plugins.extras.lang.angular" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },

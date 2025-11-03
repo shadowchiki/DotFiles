@@ -30,7 +30,7 @@ return {
 				-- },
 				-- single_file_support = true,
 			},
+      roslyn_ls = {}
 		},
 	},
-	vim.lsp.enable("roslyn_ls"),
 }
