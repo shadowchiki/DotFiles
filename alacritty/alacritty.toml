@@ -1,5 +1,5 @@
 [shell]
-program = "/usr/bin/tmux"
+# program = "/usr/bin/tmux"
 
 [colors.bright]
 black = "#4C566A"

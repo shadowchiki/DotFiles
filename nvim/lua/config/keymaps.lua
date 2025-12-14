@@ -23,8 +23,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		keymap.set(
 			"n",
 			"<leader>cp",
-			":%s/= 1/override/g<CR>",
-			{ desc = "Replace = 1 to override", noremap = true, silent = true }
+			":%s/= 0/override/g<CR>",
+			{ desc = "Replace = 0 to override", noremap = true, silent = true }
 		)
 	end,
 })
